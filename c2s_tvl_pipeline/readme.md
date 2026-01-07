@@ -288,7 +288,7 @@ Training time (GPU): 4296 seconds
 - Model_step3700: {'eval_loss': 1.3921808004379272}
 - \*__Model_step3725: {'eval_loss': 1.3921139240264893}__
 
-    <img src="../csmodel_tutorial_3/2025-11-24-18_42_05_finetune_cell_type_prediction/checkpoint-3725/loss_curves.png" style="width: 80%;">
+    <img src="../csmodel_tutorial_3/2025-11-24-18_42_05_finetune_cell_type_prediction/checkpoint-3725/loss_curves.png" alt="see ../csmodel_tutorial_3/2025-11-24-18_42_05_finetune_cell_type_prediction/checkpoint-3725/loss_curves.png" style="width: 80%;">
 
 <br>
 
@@ -463,8 +463,8 @@ If using `top_k_genes=200` but not the whole list of genes (e.g., _in v2 `Pertur
 
 ### Use top_k_genes=200 model for visualization to quality check if temperature difference during generation will create a different distribution of the samples (i.e., higher temperature would have a more spread distribution on the shared UMAP)
 
-<img src="/ix/ccdg/storage3/til177/ParkLab/Project_C2S_scFM/code/tutorials/data_PerturbSeq/perturbation_predictor_finetuned_final_benchmarking/PCA__top_k_genes200_PosteriorSamplesByTemp.png" width=80%>
-<img src="/ix/ccdg/storage3/til177/ParkLab/Project_C2S_scFM/code/tutorials/data_PerturbSeq/perturbation_predictor_finetuned_final_benchmarking/umap__top_k_genes200_PosteriorSamplesByTemp.png" width=80%>
+<img src="/ix/ccdg/storage3/til177/ParkLab/Project_C2S_scFM/code/tutorials/data_PerturbSeq/perturbation_predictor_finetuned_final_benchmarking/PCA__top_k_genes200_PosteriorSamplesByTemp.png" alt="see perturbation_predictor_finetuned_final_benchmarking/PCA__top_k_genes200_PosteriorSamplesByTemp.png" width=80%>
+<img src="/ix/ccdg/storage3/til177/ParkLab/Project_C2S_scFM/code/tutorials/data_PerturbSeq/perturbation_predictor_finetuned_final_benchmarking/umap__top_k_genes200_PosteriorSamplesByTemp.png" alt = "see perturbation_predictor_finetuned_final_benchmarking/umap__top_k_genes200_PosteriorSamplesByTemp.png" width=80%>
 
 <br>
 
@@ -482,7 +482,7 @@ __In v3, we switched to (full-length) top 2048 genes__ (Pythia-1B with 8192-toke
     - No overfitting
     - Seems that the loss curve is too noisy            --> might need larger eff. batch size
     - The loss curve decreases slower after 15k steps   --> may consider early stop
-    <img src="/ix/ccdg/storage3/til177/ParkLab/Project_C2S_scFM/code/tutorials/data_PerturbSeq/finetunedModel_2025-12-26-04_18_42_FullLengthFinetune_perturbation_prediction/checkpoint-36500/loss_curves.png">
+    <img src="/ix/ccdg/storage3/til177/ParkLab/Project_C2S_scFM/code/tutorials/data_PerturbSeq/finetunedModel_2025-12-26-04_18_42_FullLengthFinetune_perturbation_prediction/checkpoint-36500/loss_curves.png" alt="see loss_curves_FullLength.png">
 
 - <mark>Problematic in the generation step </mark>
     - The top_k_genes=2048 model did not exceed the 8192 context length. However, the generation length is limited given the context length cap. 
