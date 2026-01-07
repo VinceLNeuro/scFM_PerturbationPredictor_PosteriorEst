@@ -1,0 +1,73 @@
+# Confirm Python version and conda environment
+echo "Using Python: $(which python)"
+Using Python: /ix/ccdg/storage3/til177/custom_miniconda/envs/cell2sentence/bin/python
+python -V
+Python 3.8.20
+echo "Conda env: $CONDA_DEFAULT_ENV"
+Conda env: cell2sentence
+
+start_time=$(date +%s)
+python c2s_tvl.py
+filtered out 12559 genes that are detected in less than 3 cells
+normalizing counts per cell
+    finished (0:00:00)
+computing PCA
+    with n_comps=50
+    finished (0:00:36)
+computing neighbors
+    using 'X_pca' with n_pcs = 50
+    finished: added to `.uns['neighbors']`
+    `.obsp['distances']`, distances for each pair of neighbors
+    `.obsp['connectivities']`, weighted adjacency matrix (0:00:30)
+computing UMAP
+    finished: added
+    'X_umap', UMAP coordinates (adata.obsm) (0:00:23)
+/ix/ccdg/storage3/til177/custom_miniconda/envs/cell2sentence/lib/python3.8/site-packages/scanpy/plotting/_tools/scatterplots.py:394: UserWarning: No data for colormapping provided via 'c'. Parameters 'cmap' will be ignored
+WARNING: saving figure to file /ix/ccdg/storage3/til177/ParkLab/Project_C2S_scFM/code/tutorials/output_tut0_preprocessing_umap/umap_batch_condition.png
+/ix/ccdg/storage3/til177/custom_miniconda/envs/cell2sentence/lib/python3.8/site-packages/scanpy/plotting/_tools/scatterplots.py:394: UserWarning: No data for colormapping provided via 'c'. Parameters 'cmap' will be ignored
+WARNING: saving figure to file /ix/ccdg/storage3/til177/ParkLab/Project_C2S_scFM/code/tutorials/output_tut0_preprocessing_umap/umap_cell_type.png
+/ix/ccdg/storage3/til177/custom_miniconda/envs/cell2sentence/lib/python3.8/site-packages/scanpy/plotting/_tools/scatterplots.py:394: UserWarning: No data for colormapping provided via 'c'. Parameters 'cmap' will be ignored
+WARNING: saving figure to file /ix/ccdg/storage3/til177/ParkLab/Project_C2S_scFM/code/tutorials/output_tut0_preprocessing_umap/umap_tissue.png
+scanpy==1.9.8 anndata==0.9.2 umap==0.5.7 numpy==1.24.4 scipy==1.10.1 pandas==2.0.3 scikit-learn==1.3.2 statsmodels==0.14.1 pynndescent==0.5.13
+AnnData object with n_obs × n_vars = 29773 × 36503
+    obs: 'cell_type', 'tissue', 'batch_condition', 'organism', 'assay', 'sex'
+    var: 'gene_name', 'ensembl_id'
+Counter({'A29': 17327, 'A31': 12446})
+                                                            cell_type  ...     sex
+Pan_T7935490_AAACCTGCAAATTGCC              CD4-positive helper T cell  ...  female
+Pan_T7935490_AAACGGGCATCTGGTA  CD8-positive, alpha-beta memory T cell  ...  female
+Pan_T7935490_AAACGGGTCTTGCATT  CD8-positive, alpha-beta memory T cell  ...  female
+Pan_T7935490_AAAGCAATCATCGCTC  CD8-positive, alpha-beta memory T cell  ...  female
+Pan_T7935490_AAAGTAGCAGTCACTA                      gamma-delta T cell  ...  female
+
+[5 rows x 6 columns]
+                gene_name       ensembl_id
+MIR1302-2HG   MIR1302-2HG  ENSG00000243485
+FAM138A           FAM138A  ENSG00000237613
+OR4F5               OR4F5  ENSG00000186092
+RP11-34P13     RP11-34P13  ENSG00000238009
+RP11-34P13-1   RP11-34P13  ENSG00000239945
+Counter({'thoracic lymph node': 7573, 'spleen': 5794, 'mesenteric lymph node': 5209, 'lung': 4458, 'liver': 2716, 'bone marrow': 1773, 'duodenum': 735, 'ileum': 379, 'thymus': 354, 'caecum': 339, 'transverse colon': 262, 'sigmoid colon': 133, 'omentum': 30, 'skeletal muscle tissue': 18})
+Counter({'naive thymus-derived CD4-positive, alpha-beta T cell': 4262, 'memory B cell': 3584, 'macrophage': 2404, 'naive B cell': 2223, 'regulatory T cell': 1582, 'T follicular helper cell': 1430, 'CD8-positive, alpha-beta memory T cell, CD45RO-positive': 1369, 'naive thymus-derived CD8-positive, alpha-beta T cell': 1335, 'mucosal invariant T cell': 1306, 'effector memory CD4-positive, alpha-beta T cell': 1249, 'effector memory CD8-positive, alpha-beta T cell, terminally differentiated': 1181, 'alveolar macrophage': 1180, 'classical monocyte': 1003, 'plasma cell': 715, 'CD8-positive, alpha-beta memory T cell': 579, 'CD4-positive helper T cell': 537, 'CD16-positive, CD56-dim natural killer cell, human': 498, 'alpha-beta T cell': 486, 'gamma-delta T cell': 481, 'lymphocyte': 424, 'CD16-negative, CD56-bright natural killer cell, human': 341, 'animal cell': 303, 'conventional dendritic cell': 251, 'non-classical monocyte': 250, 'germinal center B cell': 141, 'erythroid lineage cell': 135, 'group 3 innate lymphoid cell': 116, 'mast cell': 88, 'plasmablast': 79, 'progenitor cell': 75, 'dendritic cell, human': 58, 'plasmacytoid dendritic cell': 40, 'megakaryocyte': 39, 'pro-B cell': 17, 'precursor B cell': 12})
+Index(['MIR1302-2HG', 'FAM138A', 'OR4F5', 'RP11-34P13', 'RP11-34P13-1',
+       'RP11-34P13-2', 'RP11-34P13-3', 'RP11-34P13-4', 'AP006222',
+       'RP4-669L17',
+       ...
+       'ENSG00000274175', 'ENSG00000275869', 'ENSG00000273554',
+       'ENSG00000278782', 'ENSG00000277761', 'ENSG00000277836',
+       'ENSG00000278633', 'ENSG00000276017', 'ENSG00000278817',
+       'ENSG00000277196'],
+      dtype='object', length=36503)
+[1. 1. 1. 1. 1. 1. 1. 1. 1. 6.]
+AnnData object with n_obs × n_vars = 29773 × 36503
+    obs: 'cell_type', 'tissue', 'batch_condition', 'organism', 'assay', 'sex'
+    var: 'gene_name', 'ensembl_id'
+AnnData object with n_obs × n_vars = 29773 × 23944
+    obs: 'cell_type', 'tissue', 'batch_condition', 'organism', 'assay', 'sex', 'n_genes'
+    var: 'gene_name', 'ensembl_id', 'n_cells'
+3.408124
+end_time=$(date +%s)
+duration=$((end_time - start_time))
+echo "Duration: $duration seconds"
+Duration: 714 seconds
+

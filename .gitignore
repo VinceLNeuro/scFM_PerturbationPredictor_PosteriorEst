@@ -1,9 +1,11 @@
 #### repo specific ####
-./c2s_tvl_pipeline/.my_archive
-./c2s_tvl_pipeline/.ipynb_checkpoints
+sync.sh
 
-./perturbation_predictor_finetuned_final_benchmarking/.posterior_samples_meta_script11v3.pkl
+c2s_tvl_pipeline/.my_archive
+c2s_tvl_pipeline/.ipynb_checkpoints
+c2s_tvl_pipeline/.c2s_tvl_11v3_fullLength_perturbation_PosteriorEst_slurm1556110.out
 
+perturbation_predictor_finetuned_final_benchmarking/.posterior_samples_meta_script11v3.pkl
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
